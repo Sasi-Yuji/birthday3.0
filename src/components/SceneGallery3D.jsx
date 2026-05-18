@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import pic1 from '../assets/pic1.jpeg';
-import pic2 from '../assets/pic2.jpeg';
+import img1 from '../assets/img1.jpeg';
+import img2 from '../assets/img2.png';
 import TeddyBear from './ui/TeddyBear';
 
 const StaggeredTitle = ({ text }) => {
@@ -123,7 +123,7 @@ const SceneGallery3D = ({ onComplete }) => {
   const isMobile = dims.w < 768;
 
   const photos = useMemo(() => [
-    { src: pic1 }, { src: pic2 }, { src: pic1 }, { src: pic2 }, { src: pic1 }
+    { src: img1 }, { src: img2 }, { src: img1 }, { src: img2 }, { src: img1 }
   ], []);
 
   return (

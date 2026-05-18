@@ -3,12 +3,12 @@ import './ScenePasscode.css';
 import AudioSys from '../utils/AudioSystem';
 
 // Local Assets
-import pic1 from '../assets/pic1.jpeg';
+import img2 from '../assets/img2.png';
 import pic2 from '../assets/pic2.jpeg';
 import teddy1 from '../assets/teddy1.png';
 
 const ScenePasscode = ({ onComplete }) => {
-  const [step, setStep] = useState(1); // steps 1 to 5
+  const [step, setStep] = useState(2); // steps 1 to 5 (starts at 2 to bypass passcode page)
   
   // PAGE 1: PASSCODE STATE
   const [passcode, setPasscode] = useState('');
@@ -210,26 +210,22 @@ const ScenePasscode = ({ onComplete }) => {
       {/* FULL SCREEN FLASH OVERLAY FOR PAGE 3 CAMERA CLICK */}
       <div className={`shutter-flash-overlay ${shutterFlash ? 'shutter-flash-active' : ''}`} />
 
-      {/* ----------------- PAGE 1: SECRET PASSWORD SCREEN ----------------- */}
-      {step === 1 && (
+      {/* ----------------- PAGE 1: SECRET PASSWORD SCREEN (COMMENTED OUT) ----------------- */}
+      {/* {step === 1 && (
         <div className={`passcode-container passcode-split-layout ${keypadStatus === 'shake' ? 'shake-error' : ''} ${keypadStatus === 'success' ? 'flash-success' : ''}`}>
-          {/* Polaroid on the left */}
           <div className="polaroid-wrapper">
             <div className="polaroid-img-container">
               <img src={pic2} alt="Cute polaroid" className="polaroid-img" />
             </div>
             <p className="polaroid-caption">Secret Key... 🔒</p>
-            {/* Teddy bear sticker overlapping frame */}
             <img src={teddy1} alt="Teddy Sticker" className="polaroid-sticker" />
           </div>
 
-          {/* Keypad on the right */}
           <div className="keypad-panel">
             <header className="keypad-header">
               <h2 className="keypad-title">Enter a Secret Passcode 💌</h2>
             </header>
 
-            {/* Password Dots Indicator */}
             <div className="dots-display">
               {Array.from({ length: 4 }).map((_, i) => (
                 <div 
@@ -239,7 +235,6 @@ const ScenePasscode = ({ onComplete }) => {
               ))}
             </div>
 
-            {/* Hint text for expected next number */}
             <div className={`next-number-hint ${passcode.length === 4 ? 'success-text' : ''}`}>
               {passcode.length < 4 
                 ? `Next Number: ${correctPasscode[passcode.length]}` 
@@ -247,7 +242,6 @@ const ScenePasscode = ({ onComplete }) => {
               }
             </div>
 
-            {/* Keypad Grid */}
             <div className="keypad-grid">
               {['1', '2', '3', '4', '5', '6', '7', '8', '9'].map(val => {
                 const isExpected = passcode.length < 4 && val === correctPasscode[passcode.length];
@@ -282,7 +276,7 @@ const ScenePasscode = ({ onComplete }) => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* ----------------- PAGE 2: COMPLIMENT SCREEN ----------------- */}
       {step === 2 && (
@@ -363,7 +357,7 @@ const ScenePasscode = ({ onComplete }) => {
             {filmSliding && (
               <div className="instax-film-out">
                 <div className="film-img-placeholder">
-                  <img src={pic1} alt="Developing Polaroid" />
+                  <img src={img2} alt="Developing Polaroid" />
                 </div>
               </div>
             )}
@@ -399,7 +393,7 @@ const ScenePasscode = ({ onComplete }) => {
         <div className="passcode-container reveal-split-layout">
           {/* Polaroid photo fully slides out from camera */}
           <div className="reveal-photo-frame">
-            <img src={pic1} alt="Revealed Polaroid" className="film-img-actual" />
+            <img src={img2} alt="Revealed Polaroid" className="film-img-actual" />
             <p className="polaroid-caption">Stunning... ✨</p>
             {/* Float overlapping sparkles */}
             <span style={{ position: 'absolute', top: '-10px', right: '-15px', fontSize: '24px' }}>✨</span>

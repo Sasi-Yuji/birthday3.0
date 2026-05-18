@@ -1085,6 +1085,7 @@ html {
   width: 100%;
   max-width: 310px; /* Constrain on mobile to perfectly flank the center lanyard line */
   margin-inline: auto;
+  margin-top: 14px; /* Move DOB and Age slightly lower in mobile view */
   padding-left: max(0.5rem, env(safe-area-inset-left, 0px));
   padding-right: max(0.5rem, env(safe-area-inset-right, 0px));
 }
@@ -1110,6 +1111,7 @@ html {
 @media (min-width: 640px) {
   .balloons-detail-row {
     --bd-font: 18px;
+    margin-top: 24px; /* More breathing room on larger screens */
     max-width: min(100% - 2rem, 80rem); /* Restore full-width centering on tablet/desktop */
   }
 }
