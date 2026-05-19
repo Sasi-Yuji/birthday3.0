@@ -3,7 +3,7 @@ import './ScenePasscode.css';
 import AudioSys from '../utils/AudioSystem';
 
 // Local Assets
-import img2 from '../assets/img2.png';
+import img2 from '../assets/images.webp';
 import pic2 from '../assets/pic2.jpeg';
 import teddy1 from '../assets/teddy1.png';
 
