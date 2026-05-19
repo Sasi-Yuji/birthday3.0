@@ -76,12 +76,12 @@ function App() {
   const handleDoorMiddleRevert = () => {
     setCurrentSceneIdx(1);
     // Initial state for the next scene behind the doors
-    gsap.set('.scene-container', { 
-      opacity: 0.2, 
-      scale: 1.1, 
+    gsap.set('.scene-container', {
+      opacity: 0.2,
+      scale: 1.1,
       filter: 'blur(12px)'
     });
-    
+
     // Smooth cinematic fade + zoom as doors open
     gsap.to('.scene-container', {
       opacity: 1,
@@ -128,10 +128,10 @@ function App() {
       className="relative mx-auto h-[100dvh] min-h-0 w-full max-w-[100vw] overflow-x-hidden overflow-y-hidden bg-[#050508] text-[#F9F6EE] font-montserrat select-none"
       ref={containerRef}
     >
-      <DoorTransition 
-        isActive={showDoorTransition} 
-        onMiddleRevert={handleDoorMiddleRevert} 
-        onTransitionComplete={handleDoorTransitionComplete} 
+      <DoorTransition
+        isActive={showDoorTransition}
+        onMiddleRevert={handleDoorMiddleRevert}
+        onTransitionComplete={handleDoorTransitionComplete}
       />
 
       <GlobalCanvas effectMode={effectMode} />
@@ -141,10 +141,10 @@ function App() {
           {currentSceneIdx + 1} / {SCENES.length}
         </div>
       </div>
-      
+
       {SCENES.map((scene, idx) => (
-        <section 
-          key={scene} 
+        <section
+          key={scene}
           className={`scene-container ${currentSceneIdx === idx ? 'active' : ''}`}
         >
           {currentSceneIdx === 0 && idx === 0 && <SceneIntro onStart={() => goToScene(1)} />}

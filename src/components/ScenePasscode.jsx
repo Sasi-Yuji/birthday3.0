@@ -379,7 +379,7 @@ const ScenePasscode = ({ onComplete }) => {
               <button 
                 className={`blow-btn ${filmComplete ? '' : 'opacity-50 cursor-not-allowed'}`}
                 disabled={!filmComplete}
-                onClick={filmComplete ? () => setStep(4) : undefined}
+                onClick={filmComplete ? () => setStep(5) : undefined}
               >
                 {filmComplete ? "Reveal Polaroid ✨" : "Developing..."}
               </button>
@@ -388,19 +388,16 @@ const ScenePasscode = ({ onComplete }) => {
         </div>
       )}
 
-      {/* ----------------- PAGE 4: PHOTO REVEAL ----------------- */}
-      {step === 4 && (
+      {/* ----------------- PAGE 4: PHOTO REVEAL (COMMENTED OUT) ----------------- */}
+      {/* {step === 4 && (
         <div className="passcode-container reveal-split-layout">
-          {/* Polaroid photo fully slides out from camera */}
           <div className="reveal-photo-frame">
             <img src={img2} alt="Revealed Polaroid" className="film-img-actual" />
             <p className="polaroid-caption">Stunning... ✨</p>
-            {/* Float overlapping sparkles */}
             <span style={{ position: 'absolute', top: '-10px', right: '-15px', fontSize: '24px' }}>✨</span>
             <span style={{ position: 'absolute', bottom: '15px', left: '-15px', fontSize: '20px' }}>💖</span>
           </div>
 
-          {/* Cute text and prompt beside photo */}
           <div className="reveal-text-panel animate-fade-up">
             <h2 className="reveal-title">“Who is this beautiful girl? ✨”</h2>
             <p className="reveal-desc">
@@ -415,7 +412,7 @@ const ScenePasscode = ({ onComplete }) => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* ----------------- PAGE 5: BIRTHDAY MESSAGE ----------------- */}
       {step === 5 && (
