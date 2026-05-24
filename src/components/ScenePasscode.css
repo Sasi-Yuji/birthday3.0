@@ -715,6 +715,8 @@
   text-align: center;
   max-width: 44rem;
   width: 100%;
+  max-height: calc(100vh - 4.5rem);
+  justify-content: center;
 }
 
 .message-glow-letter {
@@ -723,41 +725,80 @@
   -webkit-backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 105, 180, 0.25);
   border-radius: 2rem;
-  padding: clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.25rem, 4vw, 3rem);
   box-shadow: 
     0 30px 70px rgba(255, 105, 180, 0.12),
     inset 0 1px 2px rgba(255, 255, 255, 0.1);
   width: 100%;
-  margin-bottom: 2.5rem;
-  min-height: 250px;
+  margin-bottom: 2rem;
+  max-height: 52vh; /* Make card scale proportionally with viewport height */
+  overflow-y: auto; /* Scroll inside the card if text overflows */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+/* Custom styled scrollbar for message-glow-letter */
+.message-glow-letter::-webkit-scrollbar {
+  width: 5px;
+}
+.message-glow-letter::-webkit-scrollbar-track {
+  background: transparent;
+}
+.message-glow-letter::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 105, 180, 0.3);
+  border-radius: 10px;
 }
 
 .message-typing-text {
   font-family: var(--font-instrument-serif), serif;
   font-style: italic;
-  font-size: clamp(1.4rem, 4.5vw, 2.25rem);
-  line-height: 1.6;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  line-height: 1.55;
   color: #fff0f5;
   text-shadow: 
     0 0 10px rgba(255, 182, 193, 0.6),
     0 0 20px rgba(255, 105, 180, 0.3);
   white-space: pre-line;
   font-weight: 400;
+  margin: auto 0;
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .message-fullscreen-wrap {
+    max-width: 38rem;
+    max-height: calc(100vh - 5rem);
+  }
+
+  .message-glow-letter {
+    padding: 2.5rem 2rem;
+    max-height: 55vh;
+  }
+
+  .message-typing-text {
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    padding: 0 0.5rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .message-fullscreen-wrap {
+    max-height: calc(100vh - 3.5rem);
+    padding: 0 0.75rem;
+  }
+
   .message-glow-letter {
-    padding: 1.5rem 1.25rem;
+    padding: 1.25rem 1rem;
     border-radius: 1.5rem;
-    margin-bottom: 1.75rem;
-    min-height: 200px;
+    margin-bottom: 1.5rem;
+    max-height: 50vh;
   }
   
   .message-typing-text {
-    font-size: clamp(1.2rem, 5vw, 1.5rem);
+    font-size: clamp(1.1rem, 5vw, 1.35rem);
     line-height: 1.45;
   }
 }

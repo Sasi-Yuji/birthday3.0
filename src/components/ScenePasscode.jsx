@@ -18,6 +18,7 @@ const ScenePasscode = ({ onComplete }) => {
   // PAGE 5: TYPING STATE
   const [typedMessage, setTypedMessage] = useState('');
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const letterContainerRef = useRef(null);
 
   // Camera Interaction States (Page 3)
   const [shutterFlash, setShutterFlash] = useState(false);
@@ -201,7 +202,12 @@ const ScenePasscode = ({ onComplete }) => {
         }
       };
 
-      timerId = setInterval(type, 30);
+      timerId = setInterval(() => {
+        type();
+        if (letterContainerRef.current) {
+          letterContainerRef.current.scrollTop = letterContainerRef.current.scrollHeight;
+        }
+      }, 30);
       return () => clearInterval(timerId);
     }
   }, [step]);
@@ -460,7 +466,7 @@ const ScenePasscode = ({ onComplete }) => {
           </button>
 
           {/* Letter / Card with typing text */}
-          <div className="message-glow-letter">
+          <div className="message-glow-letter" ref={letterContainerRef}>
             <p className="message-typing-text font-serif whitespace-pre-line leading-relaxed">
               {typedMessage}
             </p>
