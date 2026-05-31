@@ -31,9 +31,20 @@ const SCENES = [
 ];
 
 function App() {
-  const [currentSceneIdx, setCurrentSceneIdx] = useState(0);
+  const [currentSceneIdx, setCurrentSceneIdx] = useState(() => {
+    const saved = localStorage.getItem('birthday_scene_idx');
+    return saved !== null ? parseInt(saved, 10) : 0;
+  });
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [effectMode, setEffectMode] = useState('ambient');
+  const [effectMode, setEffectMode] = useState(() => {
+    const saved = localStorage.getItem('birthday_scene_idx');
+    const idx = saved !== null ? parseInt(saved, 10) : 0;
+    return SCENES[idx] === 'finale' ? 'fireworks' : 'ambient';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('birthday_scene_idx', currentSceneIdx);
+  }, [currentSceneIdx]);
   const [showDoorTransition, setShowDoorTransition] = useState(false);
   const containerRef = useRef(null);
 
@@ -136,10 +147,27 @@ function App() {
 
       <GlobalCanvas effectMode={effectMode} />
 
-      <div className="pointer-events-auto fixed left-2 top-2 z-[9999] flex max-w-[calc(100vw-0.75rem)] flex-wrap items-center justify-end gap-1.5 sm:left-auto sm:right-3 sm:top-3 md:right-4 md:top-4 md:gap-2">
-        <div className="flex items-center rounded bg-white/5 px-1.5 py-1 font-mono text-[9px] opacity-50 sm:px-2 sm:text-[10px]">
+      <div className="pointer-events-auto fixed left-2 top-2 z-[9999] flex flex-wrap items-center gap-1.5 sm:left-3 sm:top-3 md:left-4 md:top-4 md:gap-2">
+        {/* Dev Navigation Controls */}
+        <button
+          onClick={() => goToScene(currentSceneIdx - 1, true)}
+          disabled={currentSceneIdx === 0}
+          className="flex items-center justify-center rounded bg-white/10 px-2 py-1 text-[10px] sm:text-xs font-mono font-bold text-white/80 hover:bg-white/20 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed backdrop-blur-sm transition-all"
+        >
+          &larr; Prev
+        </button>
+        
+        <div className="flex items-center rounded bg-white/5 px-1.5 py-1 font-mono text-[9px] text-white/50 sm:px-2 sm:text-[10px]">
           {currentSceneIdx + 1} / {SCENES.length}
         </div>
+
+        <button
+          onClick={() => goToScene(currentSceneIdx + 1, true)}
+          disabled={currentSceneIdx === SCENES.length - 1}
+          className="flex items-center justify-center rounded bg-white/10 px-2 py-1 text-[10px] sm:text-xs font-mono font-bold text-white/80 hover:bg-white/20 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed backdrop-blur-sm transition-all"
+        >
+          Next &rarr;
+        </button>
       </div>
 
       {SCENES.map((scene, idx) => (
@@ -157,7 +185,7 @@ function App() {
           {currentSceneIdx === 7 && idx === 7 && <SceneCake onComplete={() => goToScene(8)} />}
           {currentSceneIdx === 8 && idx === 8 && <ScenePuzzle onComplete={() => goToScene(9)} />}
           {currentSceneIdx === 9 && idx === 9 && <SceneGift onComplete={() => goToScene(10)} />}
-          {currentSceneIdx === 10 && idx === 10 && <SceneFinale />}
+          {currentSceneIdx === 10 && idx === 10 && <SceneFinale onRestart={() => goToScene(0, true)} />}
         </section>
       ))}
     </div>

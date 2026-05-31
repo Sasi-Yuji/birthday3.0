@@ -129,15 +129,15 @@ const SceneSurprise = ({ onComplete }) => {
           onMouseMove={(e) => handleMouseMove(e, 'card-message')}
         >
           <div className="card-content-inner">
-            <div className="card-icon-container">✉️</div>
-            <h2 className="card-title">Surprise Message</h2>
-            <p className="card-desc">A beautiful heartfelt letter waiting to be read just for you.</p>
+            <div className="card-icon-container">💌</div>
+            <h2 className="card-title">SURPRISE<br/>MESSAGE</h2>
+            <p className="card-desc">A heartwarming<br/>message just<br/>for you</p>
           </div>
           <div className="card-status-container">
             {openedSurprises.message ? (
-              <span className="card-status-badge read">Read</span>
+              <span className="card-status-badge read">READ</span>
             ) : (
-              <span className="card-status-badge unopened">Tap to Open</span>
+              <span className="card-status-badge unopened">TAP TO OPEN</span>
             )}
           </div>
         </div>
@@ -152,14 +152,14 @@ const SceneSurprise = ({ onComplete }) => {
         >
           <div className="card-content-inner">
             <div className="card-icon-container">💐</div>
-            <h2 className="card-title">Birthday Flowers</h2>
-            <p className="card-desc">A magical bouquet gallery carrying elegant sweet whispers.</p>
+            <h2 className="card-title">BIRTHDAY<br/>FLOWER</h2>
+            <p className="card-desc">A beautiful bloom<br/>to brighten your<br/>day</p>
           </div>
           <div className="card-status-container">
             {openedSurprises.flowers ? (
-              <span className="card-status-badge seen">Seen</span>
+              <span className="card-status-badge seen">SEEN</span>
             ) : (
-              <span className="card-status-badge unopened">Tap to Open</span>
+              <span className="card-status-badge unopened">TAP TO OPEN</span>
             )}
           </div>
         </div>
@@ -174,14 +174,14 @@ const SceneSurprise = ({ onComplete }) => {
         >
           <div className="card-content-inner">
             <div className="card-icon-container">🎂</div>
-            <h2 className="card-title">Surprise Cake</h2>
-            <p className="card-desc">Make a romantic wish and blow the candle in celebration.</p>
+            <h2 className="card-title">SURPRISE<br/>CAKE</h2>
+            <p className="card-desc">A sweet surprise<br/>to make you<br/>smile</p>
           </div>
           <div className="card-status-container">
             {openedSurprises.cake ? (
-              <span className="card-status-badge wish-made">Wish Made</span>
+              <span className="card-status-badge wish-made">WISH MADE</span>
             ) : (
-              <span className="card-status-badge unopened">Tap to Open</span>
+              <span className="card-status-badge unopened">TAP TO OPEN</span>
             )}
           </div>
         </div>

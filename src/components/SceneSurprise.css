@@ -1,9 +1,8 @@
 /* SceneSurprise.css - Romantic Feminine UI Styles with Perfect Mobile Responsiveness */
 
 .surprise-scene-root {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,28 +79,35 @@
   text-align: center;
   z-index: 10;
   margin-bottom: clamp(1rem, 4vh, 3.5rem);
-  max-width: 90%;
+  width: 100%;
+  max-width: 95%;
   animation: surprise-fade-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .surprise-title {
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.6rem, 4.5vw, 3rem);
-  font-weight: 700;
-  background: linear-gradient(135deg, #fff 0%, #ffc0cb 50%, #ff69b4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
-  margin-bottom: 0.5rem;
+  font-size: clamp(1.8rem, 7vw, 3.5rem);
+  font-weight: 800;
+  color: #fff0f5;
+  text-shadow: 
+    0 0 10px rgba(255, 105, 180, 0.8),
+    0 0 20px rgba(255, 105, 180, 0.5),
+    0 0 35px rgba(255, 20, 147, 0.4);
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .surprise-subheading {
   font-family: var(--font-instrument-serif), serif;
   font-style: italic;
-  font-size: clamp(0.85rem, 2.2vw, 1.4rem);
+  font-size: clamp(0.9rem, 3.8vw, 1.4rem);
   color: #f8c8dc;
-  text-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
-  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(255, 182, 193, 0.8);
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 1.3;
 }
 
 /* Card Selection Row */
@@ -109,12 +115,12 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: clamp(0.5rem, 3vw, 2.5rem);
+  align-items: stretch;
+  gap: clamp(0.4rem, 2vw, 2.5rem);
   width: 100%;
   max-width: 64rem;
   z-index: 10;
-  padding: 0.5rem;
+  padding: 0.25rem;
 }
 
 /* Glassmorphism Surprise Selection Cards */
@@ -122,23 +128,24 @@
   position: relative;
   flex: 1;
   width: 100%;
+  min-width: 0;
   max-width: 280px;
-  aspect-ratio: 4 / 5;
-  background: rgba(255, 182, 193, 0.03);
+  background: rgba(255, 182, 193, 0.05);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 192, 203, 0.15);
-  border-radius: 1.5rem;
-  padding: 1.75rem 1.5rem 1.5rem 1.5rem;
+  border: 1px solid rgba(255, 192, 203, 0.2);
+  border-radius: 1.25rem;
+  padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Push bottom status bar cleanly to the bottom */
+  justify-content: space-between;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 
-    0 15px 35px rgba(0, 0, 0, 0.4),
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(255, 105, 180, 0.25),
     inset 0 1px 2px rgba(255, 255, 255, 0.15);
   animation: surprise-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s) both;
 }
@@ -147,9 +154,48 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   width: 100%;
+  flex-grow: 1;
+}
+
+.card-icon-container {
+  font-size: clamp(2.2rem, 8vw, 3.5rem);
+  margin-bottom: 0.75rem;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4));
+}
+
+.surprise-card:hover .card-icon-container {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.card-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.75rem, 3.2vw, 1.35rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+  transition: color 0.3s;
+  text-align: center;
+}
+
+.surprise-card:hover .card-title {
+  color: #ffb6c1;
+}
+
+.card-desc {
+  font-size: clamp(0.55rem, 2.5vw, 0.9rem);
+  color: rgba(255, 240, 245, 0.85);
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 0.75rem;
 }
 
 .card-status-container {
@@ -157,38 +203,38 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 0.75rem;
+  margin-top: auto;
   z-index: 5;
 }
 
 .card-status-badge {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.25rem 0.75rem;
+  font-size: clamp(0.55rem, 2.2vw, 0.75rem);
+  font-weight: 700;
+  width: 90%;
+  padding: 0.4rem 0.2rem;
   border-radius: 100px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
   display: inline-block;
-  white-space: nowrap;
 }
 
 .card-status-badge.read,
 .card-status-badge.seen,
 .card-status-badge.wish-made {
-  background: rgba(255, 105, 180, 0.18);
+  background: rgba(255, 105, 180, 0.15);
   color: #ffb6c1;
-  border: 1px solid rgba(255, 105, 180, 0.35);
-  box-shadow: 0 0 12px rgba(255, 105, 180, 0.25);
+  border: 1px solid rgba(255, 105, 180, 0.4);
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.2);
 }
 
 .card-status-badge.unopened {
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, #ff69b4 0%, #d11a68 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 105, 180, 0.6);
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
 }
 
 .surprise-card::before {
@@ -197,8 +243,8 @@
   inset: 0;
   background: radial-gradient(
     circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 105, 180, 0.15) 0%,
-    transparent 60%
+    rgba(255, 105, 180, 0.2) 0%,
+    transparent 70%
   );
   opacity: 0;
   transition: opacity 0.3s;
@@ -210,11 +256,11 @@
 }
 
 .surprise-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  border-color: rgba(255, 105, 180, 0.4);
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(255, 105, 180, 0.5);
   box-shadow: 
-    0 25px 50px rgba(255, 105, 180, 0.15),
-    0 0 30px rgba(255, 182, 193, 0.2),
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(255, 105, 180, 0.35),
     inset 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
@@ -222,90 +268,47 @@
   transform: scale(0.98);
 }
 
-.card-icon-container {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  margin-bottom: 1.25rem;
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
-}
-
-.surprise-card:hover .card-icon-container {
-  transform: scale(1.2) rotate(5deg);
-}
-
-.card-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(1rem, 2.2vw, 1.35rem);
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  transition: color 0.3s;
-  text-align: center;
-}
-
-.surprise-card:hover .card-title {
-  color: #ffb6c1;
-}
-
-.card-desc {
-  font-size: 0.82rem;
-  color: rgba(255, 240, 245, 0.7);
-  text-align: center;
-  line-height: 1.4;
-  font-weight: 300;
-}
-
 /* Mobile Responsive Optimization for Selector Cards */
 @media (max-width: 768px) {
   .surprise-scene-root {
-    padding: 1rem 0.5rem;
-  }
-
-  .surprise-cards-container {
-    gap: clamp(0.4rem, 2vw, 1rem);
-  }
-
-  .surprise-card {
-    max-width: clamp(95px, 29vw, 130px);
-    aspect-ratio: 1 / 1.45; /* Elegant portrait proportions to provide perfect vertical breathing room */
-    padding: 0.85rem 0.35rem 0.65rem 0.35rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .card-status-container {
-    margin-top: 0.35rem;
-  }
-
-  .card-status-badge {
-    font-size: 0.58rem;
-    padding: 0.18rem 0.45rem;
-    letter-spacing: 0.02em;
-    border-radius: 100px;
-  }
-
-  .card-icon-container {
-    font-size: clamp(2rem, 7vw, 2.75rem);
-    margin-bottom: 0.25rem;
-  }
-
-  .card-title {
-    font-size: clamp(0.72rem, 2.5vw, 0.82rem);
-    margin-bottom: 0px;
-    white-space: nowrap;
-  }
-
-  .card-desc {
-    display: none; /* Hide description on mobile to keep single row clean */
+    padding: 0.5rem;
   }
 
   .surprise-header {
-    margin-bottom: clamp(1.25rem, 4vh, 2.25rem);
+    margin-bottom: clamp(1rem, 3vh, 2rem);
+  }
+
+  .surprise-cards-container {
+    gap: clamp(0.35rem, 1.5vw, 0.75rem);
+    padding: 0;
+  }
+
+  .surprise-card {
+    max-width: 32vw;
+    padding: 0.6rem 0.25rem 0.6rem 0.25rem;
+    border-radius: 0.85rem;
+  }
+
+  .card-icon-container {
+    margin-bottom: 0.4rem;
+  }
+
+  .card-title {
+    margin-bottom: 0.35rem;
+  }
+
+  .card-desc {
+    margin-bottom: 0.5rem;
+  }
+
+  .card-status-container {
+    width: 95%;
+  }
+
+  .card-status-badge {
+    width: 100%;
+    padding: 0.35rem 0.1rem;
+    font-size: clamp(0.48rem, 2vw, 0.6rem);
   }
 }
 

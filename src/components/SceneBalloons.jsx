@@ -124,19 +124,19 @@ const SceneBalloons = ({ onComplete, startTrigger = true }) => {
         >
           <div className="balloons-date-col flex min-w-0 flex-1 justify-start text-date-age">
             <div className="balloons-date-text flex items-center">
-              <Counter end={18} duration={2} className="px-0 w-auto" startTrigger={startTrigger} />
+              <Counter end={18} duration={4} className="px-0 w-auto" startTrigger={startTrigger} />
               <span className="mx-0.5 sm:mx-1 opacity-60 shrink-0">&bull;</span>
-              <Counter end={7} duration={2} className="px-0 w-auto" startTrigger={startTrigger} />
+              <Counter end={7} duration={4} className="px-0 w-auto" startTrigger={startTrigger} />
               <span className="mx-0.5 sm:mx-1 opacity-60 shrink-0">&bull;</span>
-              <Counter end={1996} duration={2} className="px-0 w-auto" startTrigger={startTrigger} />
+              <Counter end={1996} duration={4} className="px-0 w-auto" startTrigger={startTrigger} />
             </div>
             <span className="text-pink-400 ml-1.5 sm:ml-2 hidden sm:inline shrink-0">✦</span>
           </div>
 
           <div className="balloons-age-col flex shrink-0 justify-end text-date-age">
             <div className="balloons-date-text flex items-center">
-              <Counter end={29} duration={2} className="px-0 w-auto" startTrigger={startTrigger} />
-              <span className="ml-1 sm:ml-2 shrink-0">YEARS</span>
+              <Counter end={29} duration={4} className="px-0 w-auto" startTrigger={startTrigger} />
+              <span className="ml-2 sm:ml-3 shrink-0">&nbsp;YEARS</span>
             </div>
           </div>
         </div>

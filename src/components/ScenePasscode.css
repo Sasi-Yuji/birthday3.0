@@ -1,9 +1,8 @@
 /* ScenePasscode.css - Romantic Secret Passcode & Instax Camera Scene */
 
 .passcode-scene-root {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
