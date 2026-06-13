@@ -411,46 +411,17 @@ const SceneCake = ({ onComplete }) => {
               duration: 0.5
             });
 
-            // If last candle, start countdown and show hint
+            // If last candle, show "Make a wish" and hint immediately
             if (idx === candles.length - 1) {
               setFlamesLit(true);
               setTimeout(() => {
-                triggerCountdown();
+                setCountdownState('finished');
+                setWishReady(true);
               }, 600);
             }
           }
         });
       });
-    };
-
-    const triggerCountdown = () => {
-      setCountdownState('active');
-      setCountdownVal(3);
-      AudioSys.playPop();
-
-      setTimeout(() => {
-        setCountdownVal(null);
-        setTimeout(() => {
-          setCountdownVal(2);
-          AudioSys.playPop();
-
-          setTimeout(() => {
-            setCountdownVal(null);
-            setTimeout(() => {
-              setCountdownVal(1);
-              AudioSys.playPop();
-
-              setTimeout(() => {
-                setCountdownVal(null);
-                setCountdownState('finished');
-                setTimeout(() => {
-                  setWishReady(true);
-                }, 300);
-              }, 1000);
-            }, 300);
-          }, 1000);
-        }, 300);
-      }, 1000);
     };
 
     // Kick off sequence
@@ -534,23 +505,6 @@ const SceneCake = ({ onComplete }) => {
     <div className="flex w-full h-full flex-col items-center justify-center py-6 sm:py-10 md:py-12">
       <div className="content-wrapper pointer-events-none relative z-[60] mb-2 sm:mb-6 md:mb-8 flex flex-col items-center justify-end min-h-[100px] sm:min-h-[120px]">
         <AnimatePresence mode="wait">
-          {countdownState === 'active' && countdownVal !== null && (
-            <motion.div
-              key={`countdown-${countdownVal}`}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{
-                scale: 1,
-                opacity: 1,
-                filter: "drop-shadow(0 0 25px rgba(251,191,36,0.9))"
-              }}
-              exit={{ opacity: 0, filter: "blur(5px)", scale: 1.1 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="font-cinzel text-8xl sm:text-9xl md:text-[10rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-amber-200 via-yellow-400 to-amber-500 absolute"
-            >
-              {countdownVal}
-            </motion.div>
-          )}
-
           {wishReady && activeFlames > 0 && (
             <motion.div
               key="wish"
