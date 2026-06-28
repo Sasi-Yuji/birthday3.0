@@ -8,7 +8,7 @@ const CREDITS = [
   { role: "Best at", name: "Winning Every Argument (Wait, No I Do)" },
   { role: "Special Talent", name: "Making Me Laugh Despite Everything" },
   { role: "Soundtrack", name: "Our Playful Banter & Inside Jokes" },
-  { role: "Directed By", name: "Destiny (A.K.A Your Awesome Older Sibling)" }
+  { role: "Directed By", name: "Sasikumar" }
 ];
 
 const Constellation = ({ onComplete }) => {
