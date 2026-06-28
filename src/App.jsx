@@ -1,20 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import ReactDom from 'react-dom';
 import gsap from 'gsap';
 import GlobalCanvas from './components/GlobalCanvas';
 import SceneIntro from './components/SceneIntro';
-import SceneBalloons from './components/SceneBalloons';
-import SceneSurprise from './components/SceneSurprise';
-import ScenePasscode from './components/ScenePasscode';
-import SceneGallery from './components/SceneGallery';
-import ScenePosters from './components/ScenePosters';
-import SceneGallery3D from './components/SceneGallery3D';
-import SceneCake from './components/SceneCake';
-import ScenePuzzle from './components/ScenePuzzle';
-import SceneGift from './components/SceneGift';
-import SceneFinale from './components/SceneFinale';
 import DoorTransition from './components/DoorTransition';
-import SceneGiftRoom from './components/SceneGiftRoom';
+
+// Lazy load heavy scene components to reduce initial bundle
+const SceneBalloons = lazy(() => import('./components/SceneBalloons'));
+const SceneSurprise = lazy(() => import('./components/SceneSurprise'));
+const ScenePasscode = lazy(() => import('./components/ScenePasscode'));
+const SceneGallery = lazy(() => import('./components/SceneGallery'));
+const ScenePosters = lazy(() => import('./components/ScenePosters'));
+const SceneGallery3D = lazy(() => import('./components/SceneGallery3D'));
+const SceneCake = lazy(() => import('./components/SceneCake'));
+const ScenePuzzle = lazy(() => import('./components/ScenePuzzle'));
+const SceneGift = lazy(() => import('./components/SceneGift'));
+const SceneFinale = lazy(() => import('./components/SceneFinale'));
+const SceneGiftRoom = lazy(() => import('./components/SceneGiftRoom'));
+
+const LoadingScreen = () => (
+  <div className="w-full h-full flex items-center justify-center bg-black">
+    <div className="text-center">
+      <div className="w-12 h-12 border-4 border-purple-500 border-t-pink-500 rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-white text-sm">Loading Scene...</p>
+    </div>
+  </div>
+);
 
 const SCENES = [
   'intro',
@@ -155,16 +166,56 @@ function App() {
           className={`scene-container ${currentSceneIdx === idx ? 'active' : ''}`}
         >
           {currentSceneIdx === 0 && idx === 0 && <SceneIntro onStart={() => goToScene(1)} />}
-          {currentSceneIdx === 1 && idx === 1 && <SceneBalloons onComplete={() => goToScene(2)} startTrigger={!showDoorTransition} />}
-          {currentSceneIdx === 2 && idx === 2 && <SceneGiftRoom onComplete={() => goToScene(3, true)} />}
-          {currentSceneIdx === 3 && idx === 3 && <SceneSurprise onComplete={() => goToScene(4)} />}
-          {currentSceneIdx === 4 && idx === 4 && <ScenePasscode onComplete={() => goToScene(5)} />}
-          {currentSceneIdx === 5 && idx === 5 && <SceneGallery onComplete={() => goToScene(6)} />}
-          {currentSceneIdx === 6 && idx === 6 && <SceneGallery3D onComplete={() => goToScene(7)} />}
-          {currentSceneIdx === 7 && idx === 7 && <SceneCake onComplete={() => goToScene(8)} />}
-          {currentSceneIdx === 8 && idx === 8 && <ScenePuzzle onComplete={() => goToScene(9)} />}
-          {currentSceneIdx === 9 && idx === 9 && <SceneGift onComplete={() => goToScene(10)} />}
-          {currentSceneIdx === 10 && idx === 10 && <SceneFinale onRestart={() => goToScene(0, true)} />}
+          {currentSceneIdx === 1 && idx === 1 && (
+            <Suspense fallback={<LoadingScreen />}>
+              <SceneBalloons onComplete={() => goToScene(2)} startTrigger={!showDoorTransition} />
+            </Suspense>
+          )}
+          {currentSceneIdx === 2 && idx === 2 && (
+            <Suspense fallback={<LoadingScreen />}>
+              <SceneGiftRoom onComplete={() => goToScene(3, true)} />
+            </Suspense>
+          )}
+          {currentSceneIdx === 3 && idx === 3 && (
+            <Suspense fallback={<LoadingScreen />}>
+              <SceneSurprise onComplete={() => goToScene(4)} />
+            </Suspense>
+          )}
+          {currentSceneIdx === 4 && idx === 4 && (
+            <Suspense fallback={<LoadingScreen />}>
+              <ScenePasscode onComplete={() => goToScene(5)} />
+            </Suspense>
+          )}
+          {currentSceneIdx === 5 && idx === 5 && (
+            <Suspense fallback={<LoadingScreen />}>
+              <SceneGallery onComplete={() => goToScene(6)} />
+            </Suspense>
+          )}
+          {currentSceneIdx === 6 && idx === 6 && (
+            <Suspense fallback={<LoadingScreen />}>
+              <SceneGallery3D onComplete={() => goToScene(7)} />
+            </Suspense>
+          )}
+          {currentSceneIdx === 7 && idx === 7 && (
+            <Suspense fallback={<LoadingScreen />}>
+              <SceneCake onComplete={() => goToScene(8)} />
+            </Suspense>
+          )}
+          {currentSceneIdx === 8 && idx === 8 && (
+            <Suspense fallback={<LoadingScreen />}>
+              <ScenePuzzle onComplete={() => goToScene(9)} />
+            </Suspense>
+          )}
+          {currentSceneIdx === 9 && idx === 9 && (
+            <Suspense fallback={<LoadingScreen />}>
+              <SceneGift onComplete={() => goToScene(10)} />
+            </Suspense>
+          )}
+          {currentSceneIdx === 10 && idx === 10 && (
+            <Suspense fallback={<LoadingScreen />}>
+              <SceneFinale onRestart={() => goToScene(0, true)} />
+            </Suspense>
+          )}
         </section>
       ))}
     </div>
