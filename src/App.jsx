@@ -86,7 +86,7 @@ function App() {
 
   const handleDoorMiddleRevert = () => {
     setCurrentSceneIdx(1);
-    // Initial state for the next scene behind the doors
+  
     gsap.set('.scene-container', {
       opacity: 0.2,
       scale: 1.1,
@@ -172,3 +172,4 @@ function App() {
 }
 
 export default App;
+//done
