@@ -4,7 +4,8 @@ import AudioSys from '../utils/AudioSystem';
 
 // Local Assets
 import img2 from '../assets/img3.jpg';
-import pic2 from '../assets/img2.jpg';
+import pic4 from '../assets/pic4.jpeg';
+import pic5 from '../assets/pic5.jpeg';
 import teddy1 from '../assets/teddy1.png';
 
 const ScenePasscode = ({ onComplete }) => {
@@ -30,16 +31,16 @@ const ScenePasscode = ({ onComplete }) => {
 
   // Birthday Message Lines
   const messageLines = [
-    "Dearest Friend, 💖",
+    "Dearest Sister, 💖",
     "",
-    "Happy Birthday to the most precious person! 🌟",
-    "Your smile makes every day better, and I am so incredibly lucky to have you in my life. You bring a warmth and light to everyone around you that is truly rare and beautiful.",
+    "Okay, I'll admit it - you're actually cooler than I give you credit for! 😏",
+    "All those times we fight and you drive me crazy... I secretly think you're amazing. You might be annoying sometimes, but you're MY annoying little sister, and I wouldn't trade you for anything.",
     "",
-    "These flowers are a reflection of your beauty, and this cake is for the sweet moments we share. 🎂🌸",
+    "Your smile is literally contagious (unfortunately, even when you're teasing me about stuff). You light up every room, and somehow you manage to make even our silly arguments memorable.",
     "",
-    "May your day be filled with endless laughter, sweet memories, and all the happiness your heart can hold. You deserve the absolute best today and always.",
+    "Happy Birthday to the one who knows EXACTLY how to push my buttons but somehow always makes me laugh at the end. Keep being your chaotic, brilliant self.",
     "",
-    "Wishing you the happiest birthday ever! ✨"
+    "Love you tons (don't let this go to your head)! 💫"
   ];
 
   // Initialize audio state
@@ -224,7 +225,7 @@ const ScenePasscode = ({ onComplete }) => {
         <div className={`passcode-container passcode-split-layout ${keypadStatus === 'shake' ? 'shake-error' : ''} ${keypadStatus === 'success' ? 'flash-success' : ''}`}>
           <div className="polaroid-wrapper">
             <div className="polaroid-img-container">
-              <img src={pic2} alt="Cute polaroid" className="polaroid-img" />
+              <img src={pic5} alt="Cute polaroid" className="polaroid-img" />
             </div>
             <p className="polaroid-caption">Secret Key... 🔒</p>
             <img src={teddy1} alt="Teddy Sticker" className="polaroid-sticker" />
@@ -366,7 +367,7 @@ const ScenePasscode = ({ onComplete }) => {
             {filmSliding && (
               <div className="instax-film-out">
                 <div className="film-img-placeholder">
-                  <img src={img2} alt="Developing Polaroid" />
+                  <img src={pic4} alt="Developing Polaroid" />
                 </div>
               </div>
             )}
@@ -401,7 +402,7 @@ const ScenePasscode = ({ onComplete }) => {
       {step === 4 && (
         <div className="passcode-container reveal-split-layout">
           <div className="reveal-photo-frame">
-            <img src={img2} alt="Revealed Polaroid" className="film-img-actual" />
+            <img src={pic4} alt="Revealed Polaroid" className="film-img-actual" />
             <p className="polaroid-caption">Stunning... ✨</p>
             <span style={{ position: 'absolute', top: '-10px', right: '-15px', fontSize: '24px' }}>✨</span>
             <span style={{ position: 'absolute', bottom: '15px', left: '-15px', fontSize: '20px' }}>💖</span>

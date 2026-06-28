@@ -1,5 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import FlyingPosters from './ui/FlyingPosters';
+import pic8 from '../assets/pic8.jpeg';
+import pic7 from '../assets/pic7.jpeg';
+import pic10 from '../assets/pic10.jpeg';
+import pic11 from '../assets/pic11.jpeg';
+import pic12 from '../assets/pic12.jpeg';
 
 const birthdayTextItems = [
   { text: 'Happy Birthday ✨', className: 'joy-text--left-one', delay: '0s' },
@@ -42,18 +47,18 @@ const ScenePosters = ({ onComplete }) => {
 
   const posterItems = useMemo(
     () => [
-      'https://picsum.photos/800/1200?random=1',
-      'https://picsum.photos/800/1200?random=2',
-      'https://picsum.photos/800/1200?random=3',
-      'https://picsum.photos/800/1200?random=4',
-      'https://picsum.photos/800/1200?random=5',
-      'https://picsum.photos/800/1200?random=6',
-      'https://picsum.photos/800/1200?random=7',
-      'https://picsum.photos/800/1200?random=8',
-      'https://picsum.photos/800/1200?random=9',
-      'https://picsum.photos/800/1200?random=10',
-      'https://picsum.photos/800/1200?random=11',
-      'https://picsum.photos/800/1200?random=12',
+      pic8,
+      pic7,
+      pic10,
+      pic11,
+      pic12,
+      pic8,
+      pic7,
+      pic10,
+      pic11,
+      pic12,
+      pic8,
+      pic7,
     ],
     []
   );

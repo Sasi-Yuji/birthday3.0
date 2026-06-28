@@ -20,16 +20,16 @@ const SceneSurprise = ({ onComplete }) => {
   // Message Typing State
   const [typedText, setTypedText] = useState('');
   const messageLines = [
-    "Dearest Friend, 💖",
+    "Dearest Sister, 💖",
     "",
-    "Happy Birthday to the most precious person! 🌟",
-    "Your smile makes every day better, and I am so incredibly lucky to have you in my life. You bring a warmth and light to everyone around you that is truly rare and beautiful.",
+    "Okay, I'll admit it - you're actually cooler than I give you credit for! 😏",
+    "All those times we fight and you drive me crazy... I secretly think you're amazing. You might be annoying sometimes, but you're MY annoying little sister, and I wouldn't trade you for anything.",
     "",
-    "These flowers are a reflection of your beauty, and this cake is for the sweet moments we share. 🎂🌸",
+    "Your smile is literally contagious (unfortunately, even when you're teasing me about stuff). You light up every room, and somehow you manage to make even our silly arguments memorable.",
     "",
-    "May your day be filled with endless laughter, sweet memories, and all the happiness your heart can hold. You deserve the absolute best today and always.",
+    "Happy Birthday to the one who knows EXACTLY how to push my buttons but somehow always makes me laugh at the end. Keep being your chaotic, brilliant self.",
     "",
-    "Wishing you the happiest birthday ever! ✨"
+    "Love you tons (don't let this go to your head)! 💫"
   ];
   
   // Open modal handler
@@ -347,8 +347,8 @@ const MessageSurpriseModal = ({ lines, onClose }) => {
             </div>
 
             <div className="letter-signature">
-              With all my love & heart, <br />
-              <span className="font-instrument-serif text-2xl font-semibold italic text-[#d11a68]">Your Special Friend ✨</span>
+              Forever your chaos-causing, love-filled older sibling, <br />
+              <span className="font-instrument-serif text-2xl font-semibold italic text-[#d11a68]">Your Sister (Who Actually Adores You) 💕</span>
             </div>
           </div>
         </div>

@@ -3,11 +3,11 @@ import type { Variants } from "motion/react"
 import React from 'react'
 import { PixelImage } from './pixel-image';
 
-import img2 from '../../assets/img2.jpg';
-import img3 from '../../assets/img3.jpg';
-import img10 from '../../assets/img10.jpg';
-import img11 from '../../assets/img11.jpg';
-import img12 from '../../assets/img12.jpg';
+import pic8 from '../../assets/pic8.jpeg';
+import pic7 from '../../assets/pic7.jpeg';
+import pic10 from '../../assets/pic10.jpeg';
+import pic11 from '../../assets/pic11.jpeg';
+import pic12 from '../../assets/pic12.jpeg';
 
 export function ScrollTriggered() {
     const [width, setWidth] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
@@ -157,9 +157,9 @@ const card: React.CSSProperties = {
 }
 
 const food: (string | number)[][] = [
-    [img2, 340, 10],
-    [img3, 20, 40],
-    [img10, 60, 90],
-    [img12, 80, 120],
-    [img11, 100, 140]
+    [pic8, 340, 10],
+    [pic7, 20, 40],
+    [pic10, 60, 90],
+    [pic12, 80, 120],
+    [pic11, 100, 140]
 ]

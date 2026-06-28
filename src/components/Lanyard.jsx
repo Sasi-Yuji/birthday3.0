@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Cpu } from 'lucide-react';
-import img12 from '../assets/img3.jpg';
+import pic7 from '../assets/pic7.jpeg';
 import './Lanyard.css';
 
 const Lanyard = () => {
@@ -66,7 +66,7 @@ const Lanyard = () => {
 
             {/* The Hanging Image requested by the user */}
             <img
-              src={img12}
+              src={pic7}
               alt="Hanging Polaroid"
               className="w-full h-full object-cover filter drop-shadow-sm group-hover:scale-[1.05] transition-transform duration-700 origin-center pointer-events-none"
             />

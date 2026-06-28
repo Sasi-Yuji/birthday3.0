@@ -4,11 +4,11 @@ import { RefreshCw, Star } from 'lucide-react';
 import AudioSys from '../utils/AudioSystem';
 
 const CREDITS = [
-  { role: "Starring", name: "Smriti" },
-  { role: "Best Feature", name: "That Beautiful Smile" },
-  { role: "Superpower", name: "Making Everyone Happy" },
-  { role: "Soundtrack", name: "Laughter & Joy" },
-  { role: "Produced By", name: "Someone who cares deeply" }
+  { role: "Starring", name: "Rashika - My Younger Sis" },
+  { role: "Best at", name: "Winning Every Argument (Wait, No I Do)" },
+  { role: "Special Talent", name: "Making Me Laugh Despite Everything" },
+  { role: "Soundtrack", name: "Our Playful Banter & Inside Jokes" },
+  { role: "Directed By", name: "Destiny (A.K.A Your Awesome Older Sibling)" }
 ];
 
 const Constellation = ({ onComplete }) => {

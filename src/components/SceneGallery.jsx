@@ -2,22 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { ParticleSphere } from "./OrbitGallery";
-import img2 from '../assets/img2.jpg';
-import img3 from '../assets/img3.jpg';
-import img4 from '../assets/img4.jpg';
-import img8 from '../assets/img8.jpg';
-import img10 from '../assets/img10.jpg';
-import img11 from '../assets/img11.jpg';
-import img12 from '../assets/img12.jpg';
-import img13 from '../assets/img13.jpg';
+import pic1 from '../assets/pic1.jpeg';
+import pic2 from '../assets/pic2.jpeg';
+import pic3 from '../assets/pic3.jpeg';
+import pic4 from '../assets/pic4.jpeg';
+import pic5 from '../assets/pic5.jpeg';
+import pic6 from '../assets/pic6.jpeg';
 
-const img1 = img10;
-const img5 = img11;
-const img6 = img12;
-const img7 = img13;
-const img9 = img2;
-
-const galleryImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
+const galleryImages = [pic1, pic2, pic3, pic4, pic5, pic6];
 
 const SceneGallery = ({ onComplete }) => {
   const [showContinue, setShowContinue] = useState(false);

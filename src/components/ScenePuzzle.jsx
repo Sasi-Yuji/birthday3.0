@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { motion, AnimatePresence } from 'framer-motion';
 import AudioSys from '../utils/AudioSystem';
-import PUZZLE_IMG from '../assets/img3.jpg';
+import PUZZLE_IMG from '../assets/pic1.jpeg';
 import TeddyBear from './ui/TeddyBear';
 
 const ScenePuzzle = ({ onComplete }) => {
